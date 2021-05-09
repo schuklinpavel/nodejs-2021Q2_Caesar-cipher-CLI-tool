@@ -1,6 +1,6 @@
 export const ACTIONS = {
-  ENCODE: 'encode',
-  DECODE: 'decode',
+    ENCODE: 'encode',
+    DECODE: 'decode',
 };
 
 export const ALPHABET_UPPER = [
@@ -30,7 +30,8 @@ export const ALPHABET_UPPER = [
     'X',
     'Y',
     'Z',
-    ];
+];
+
 export const ALPHABET_LOWER = [
     'a',
     'b',

@@ -1,19 +1,21 @@
 import { Transform } from 'stream';
-import { getText } from "./utils.js";
+import getCaesarCipherText from "./getCaesarCipherText.js";
 
 export class CaesarCipherTransform extends Transform {
-    constructor({ action, shift }) {
+    constructor({ action, shift, oldOutput }) {
         super();
         this.action = action;
         this.shift = shift;
+        this.oldOutput = oldOutput;
     }
 
     _transform(chunk, encoding, callback) {
         try {
-            const resultString = getText({
+            const resultString = getCaesarCipherText({
                 text: chunk.toString('utf8'),
                 action: this.action,
-                shift: this.shift
+                shift: this.shift,
+                oldOutput: this.oldOutput,
             });
             callback(null, resultString);
         } catch (err) {
