@@ -28,7 +28,7 @@ const getCaesarCipherText = ({text, action, shift, oldOutput}) => {
     }
     console.log([text, shift], Object.entries(alphabetMap).filter(i => !i[1]));
     const result = text.split('').map(letter => alphabetMap[letter] ?? letter).join('');
-    return oldOutput?.length ? `${oldOutput}\n${result}` : result;
+    return oldOutput?.length ? `${oldOutput}${result}` : result;
 };
 
 export default getCaesarCipherText;
