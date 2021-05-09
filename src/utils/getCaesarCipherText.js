@@ -12,7 +12,6 @@ function* getCycleArray({array, index = 0}) {
 const getCaesarCipherText = ({text, action, shift, oldOutput}) => {
     const genUpper = getCycleArray({array: ALPHABET_UPPER, index: shift});
     const genLower = getCycleArray({array: ALPHABET_LOWER, index: shift});
-
     let alphabetMap;
 
     if (action === ACTIONS.ENCODE) {
@@ -26,7 +25,7 @@ const getCaesarCipherText = ({text, action, shift, oldOutput}) => {
             ...ALPHABET_LOWER.reduce((result, letter) => ({...result, [genLower.next().value]: letter}), {}),
         };
     }
-    console.log([text, shift], Object.entries(alphabetMap).filter(i => !i[1]));
+
     const result = text.split('').map(letter => alphabetMap[letter] ?? letter).join('');
     return oldOutput?.length ? `${oldOutput}${result}` : result;
 };
